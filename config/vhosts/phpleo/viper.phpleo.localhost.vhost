@@ -1,0 +1,18 @@
+# http://www.symfony-project.org/jobeet/1_4/Doctrine/en/01#chapter_01_web_server_configuration_the_secure_way
+
+<VirtualHost *:80>
+    ServerName     viper.localhost
+    DirectoryIndex index.php
+
+    DocumentRoot "/home/vhosts/viper/web"
+    <Directory   "/home/vhosts/viper/web">
+        AllowOverride All
+        Allow from All
+    </Directory>
+    
+    Alias /sf  "/opt/symfony/sf1.4/data/web/sf"
+    <Directory "/opt/symfony/sf1.4/data/web/sf">
+        AllowOverride All
+        Allow from All
+    </Directory>
+</VirtualHost>

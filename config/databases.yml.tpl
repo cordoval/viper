@@ -1,10 +1,10 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/07-Databases
 
-dev:
+all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=192.168.1.33;dbname=viper_dev
+      dsn:      mysql:host=localhost;dbname=viper
       username: root
       password: 
