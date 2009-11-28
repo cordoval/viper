@@ -6,11 +6,14 @@
  * @package    viper
  * @subpackage form
  * @author     Pedro Hernandez <phpleo
- * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @version    SVN: $Id$
  */
 class ViperCompanyForm extends BaseViperCompanyForm
 {
-  public function configure()
-  {
-  }
+    public function configure()
+    {
+        // elementos a mostrar
+        $this->useFields(array('name', 'address', 'phone_number', 'fax_number', 'homepage'));
+    }
+
 }

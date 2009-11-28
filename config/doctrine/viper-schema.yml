@@ -1,61 +1,26 @@
 ViperCompany:
   connection: doctrine
   tableName:  viper_company
+  #package:    viper
   columns:
-    id: {type: integer(11), fixed: false, unsigned: true, primary: true, autoincrement: true}
-    name:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    slug:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    address:
-      type: string(255)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    phone_number:
-      type: string(20)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    fax_number:
-      type: string(20)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    homepage:
-      type: string(50)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: false
-      autoincrement: false
-    created_at:
-      type: timestamp(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
-    updated_at:
-      type: timestamp(25)
-      fixed: false
-      unsigned: false
-      primary: false
-      notnull: true
-      autoincrement: false
+    id:           {type: integer(11), fixed: false, unsigned: true, primary: true, autoincrement: true}
+    name:         {type: string(50), fixed: false, unsigned: false, primary: false, notnull: true, autoincrement: false}
+    slug:         {type: string(50), fixed: false, unsigned: false, primary: false, notnull: true, autoincrement: false}
+    address:      {type: string(255), fixed: false, unsigned: false, primary: false, notnull: true, autoincrement: false}
+    phone_number: {type: string(20), fixed: false, unsigned: false, primary: false, notnull: true, autoincrement: false}
+    fax_number:   {type: string(20), fixed: false, unsigned: false, primary: false, notnull: false, autoincrement: false}
+    homepage:     {type: string(50), fixed: false, unsigned: false, primary: false, notnull: false, autoincrement: false}
+  actAs:
+    Sluggable:
+      fields:    [name]
+      canUpdate: true
+      unique:    true
+    Timestampable:
+      created:
+        name:    created_at
+        type:    timestamp
+        format:  Y-m-d H:i:s
+      updated:
+        name:    updated_at
+        type:    timestamp
+        format:  Y-m-d H:i:s
