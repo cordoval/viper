@@ -5,18 +5,20 @@
  *
  * @package    viper
  * @subpackage complements
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @author     Pedro Hernandez <phpleo [at] gmail [dot] com>
+ * @version    SVN: $Id$
  */
 class complementsActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
-  {
-    $this->forward('default', 'module');
-  }
+    
+    /**
+     * Executes index action
+     * 
+     * @param sfRequest $request A request object
+     */
+    public function executeIndex(sfWebRequest $request)
+    {
+        $this->forward('default', 'module');
+    }
+
 }
