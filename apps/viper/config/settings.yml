@@ -3,7 +3,7 @@
 
 prod:
   .settings:
-    no_script_name:         true
+    no_script_name:         false
     logging_enabled:        false
 
 dev:
@@ -25,7 +25,7 @@ test:
 all:
   .settings:
     # Form security secret (CSRF protection)
-    csrf_secret:            a4e488f144df7b09ab13f8a80d6fc6e9a6b694df
+    csrf_secret:            82e1daa09255744b25339f4e2646a0d8718ef562
 
     # Output escaping settings
     escaping_strategy:      true
