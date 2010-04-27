@@ -5,13 +5,32 @@ sfCoreAutoload::register();
 
 class ProjectConfiguration extends sfProjectConfiguration
 {
-    
+
     public function setup()
     {
-        $this->enablePlugins(array(
-            'sfDoctrinePlugin',
-            'sfDoctrineGuardPlugin'
-            ));
+        $this->symfonyPlugins();
+        $this->viperPlugins();
+      $this->enablePlugins('sfPHPUnit2Plugin');
+  }
+
+    public function configureDoctrine(Doctrine_Manager $manager)
+    {
+        $manager->setCollate('utf8_unicode_ci');
+        $manager->setCharset('utf8');
+    }
+
+    protected function symfonyPlugins()
+    {
+        $this->enablePlugins('sfDoctrinePlugin');
+        $this->enablePlugins('sfDoctrineGuardPlugin');
+    }
+
+    /**
+     * @todo implementar el uso de plugins personalizados
+     */
+    protected function viperPlugins()
+    {
+
     }
 
 }

@@ -1,5 +1,8 @@
 nbproject
 
+cache/!.sf
+cache/*
+
 config/doctrine/schema.yml
 config/databases.yml
 
@@ -18,3 +21,5 @@ lib/form/doctrine/sfDoctrineGuardPlugin
 
 lib/model/doctrine/base
 lib/model/doctrine/sfDoctrineGuardPlugin
+
+web/sfDoctrinePlugin
