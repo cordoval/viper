@@ -1,0 +1,78 @@
+VpProject:
+  connection: doctrine
+  tableName:  vp_project
+  columns:
+    id:          { type: integer(4), unsigned: true, primary: true, autoincrement: true }
+    name:        { type: string(50), notnull: true }
+    slug:        { type: string(75), notnull: true }
+    description: { type: string(), notnull: false }
+    started_at:  { type: timestamp(25), notnull: true }
+  actAs:
+    Sluggable:
+      unique:    true
+      fields:    [name]
+      canUpdate: true
+    Timestampable:
+      created:
+        name:   created_at
+        type:   timestamp
+        format: Y-m-d H
+      updated:
+        name:   updated_at
+        type:   timestamp
+        format: Y-m-d H
+  relations:
+    VpUserstory:
+      local:   id
+      foreign: vp_project_id
+      type:    many
+
+VpTask:
+  connection: doctrine
+  tableName:  vp_task
+  columns:
+    id:              { type: integer(4), unsigned: true, primary: true, autoincrement: true }
+    vp_userstory_id: { type: integer(4), unsigned: true, notnull: true }
+    description:     { type: string(), notnull: true }
+  actAs:
+    Timestampable:
+      created:
+        name:   created_at
+        type:   timestamp
+        format: Y-m-d H
+      updated:
+        name:   updated_at
+        type:   timestamp
+        format: Y-m-d H
+  relations:
+    VpUserstory:
+      local: vp_userstory_id
+      foreign: id
+      type: one
+
+VpUserstory:
+  connection: doctrine
+  tableName:  vp_userstory
+  columns:
+    id:            { type: integer(4), unsigned: true, primary: true, autoincrement: true }
+    vp_project_id: { type: integer(4), unsigned: true, notnull: true }
+    content:       { type: string(), notnull: true }
+  actAs:
+    Timestampable:
+      created:
+        name:   created_at
+        type:   timestamp
+        format: Y-m-d H
+      updated:
+        name:   updated_at
+        type:   timestamp
+        format: Y-m-d H
+  relations:
+    VpProject:
+      local:   vp_project_id
+      foreign: id
+      type:    one
+    VpTask:
+      local:   id
+      foreign: vp_userstory_id
+      type:    many
